@@ -1,0 +1,26 @@
+
+services:
+  flask:
+    build:
+      context: .
+    container_name: flask_app
+    expose:
+      - "8000:8000"  # Nginx'in Flask'a ulaşacağı port
+    networks:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_server
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - flask
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

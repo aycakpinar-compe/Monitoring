@@ -1,0 +1,8 @@
+# Nginx Dockerfile'ı
+FROM nginx:alpine
+
+# Nginx konfigürasyon dosyasını kopyalayın
+COPY nginx.conf /etc/nginx/nginx.conf
+
+
+EXPOSE 80

@@ -1,0 +1,5 @@
+FROM python:3.12.4  # Python tabanlı bir imaj kullan
+WORKDIR /app       # Çalışma dizinini belirle
+COPY . /app        # Dosyaları konteynıra kopyala
+
+CMD ["python", "app.py"]  # Konteyner başladığında Flask uygulamasını çalıştır

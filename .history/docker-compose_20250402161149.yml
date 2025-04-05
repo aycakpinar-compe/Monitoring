@@ -1,0 +1,27 @@
+services:
+  flask:
+    build:
+      context: .
+    container_name: flask_app
+    expose:
+      - "8000"  # No need for port mapping since we're using internal network
+    environment:
+      - FLASK_ENV=development
+    networks:
+      - backend
+    
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_server
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Using your original volume mapping
+    ports:
+      - "80:80"
+    depends_on:
+      - flask  # This matches your service name
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

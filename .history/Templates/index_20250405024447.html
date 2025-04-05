@@ -1,0 +1,26 @@
+{% extends "base.html" %} 
+
+{% block body %}
+<div class="fotogosteren">
+    <label style="margin-right: 10px;">Bir şarkı seçin:</label>
+    <select style="margin-right: 20px;" id="selectid"  onchange="resmidegistir()">
+        <option valuevideosource="" disabled selected>Bir video seçin</option>
+        <option videosource="{{ url_for('static', filename='LP - Other People (Official Music Video).mp4') }}">LP - Other People</option>
+        <option videosource="{{ url_for('static', filename='Lana Del Rey - West Coast.mp4') }}">Lana Del Rey - West Coast</option>
+        <option videosource="{{ url_for('static', filename='b.mp4') }}"> Billie Eilish - when the party's over</option>
+        <option videosource="{{ url_for('static', filename='Billie Eilish - Ocean Eyes (Official Music Video).mp4') }}">Billie Eilish - Ocean Eyes</option>
+        <option videosource="{{ url_for('static', filename='Arctic Monkeys - a.mp4') }}">Arctic Monkeys - Why'd You Only Call Me When You're High</option>
+        <option videosource="{{ url_for('static', filename='Arctic Monkeys_Arabella.mp4') }}">Arctic Monkeys - Arabella</option>
+    </select>
+    
+    <button type="submit">SUBMIT</button>
+    
+    <div>
+        <h3>Seçtiğiniz video:</h3>
+        <video id="resimid" width="400" height="300" controls>
+            <source id="videosource" src="" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+    </div>
+</div>
+{% endblock %}

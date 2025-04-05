@@ -1,0 +1,5 @@
+FROM python:3.10  # Python tabanlı bir imaj kullan
+WORKDIR /app       # Çalışma dizinini belirle
+COPY . /app        # Dosyaları konteynıra kopyala
+RUN pip install -r requirements.txt  # Gerekli paketleri yükle
+CMD ["python", "app.py"]  # Konteyner başladığında Flask uygulamasını çalıştır

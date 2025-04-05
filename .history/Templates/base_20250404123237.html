@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  {% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="{{url_for('static',filename='index.js')}}" defer></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+   {% endblock %}
+</head>
+<body>
+    <nav>
+        <ul id="logo">
+            <li> <a href="/"><img src="{{url_for('static',filename='TivibuLogo1.png')}}" alt="Tivibu Logo"></a></li>
+        </ul>
+        <ul id="logo-haric">
+            <li><a href="/history">History</a></li>
+            <li id="settings">
+                <a href="#">Settings</a>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Account Update</a></li>
+                    <li><a href="/logout">Log-out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    {% block body %} {% endblock %}
+    <footer></footer>
+</body>
+</html>

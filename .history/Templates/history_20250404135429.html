@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+
+{% block body %}
+<table style="width:100%">
+    <tr>
+      <th>Song</th>
+      <th>Singer</th>
+      <th>Time</th>
+    </tr>
+    {%for i in range(0, len)%} 
+    
+    <tr>
+        <th>{{picked_items.picked_song}}</th>
+        <th>{{picked_items.singer}}</th>
+        <th>{{picked_items.session_date}}</th>
+      </tr>
+    {%endfor%} 
+  </table>
+
+  {% endblock  %}

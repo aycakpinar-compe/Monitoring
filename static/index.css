@@ -1,0 +1,258 @@
+/* Genel body ayarları */
+body {
+    font-family: 'Arial', sans-serif;  /* Düzgün ve okunabilir font */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;  /* Açık gri arka plan */
+    color: #333;  /* Yazı rengi */
+}
+
+/* HTML ve body'nin tam ekran kaplaması */
+html, body {
+    height: 100%;
+}
+
+/* Linklerin stil ayarları */
+a {
+    text-decoration: none;  /* Alt çizgi kaldırıldı */
+    color: inherit;  /* Varsayılan renk kullanılacak */
+}
+
+a:hover {
+    color: #ff6f00;  /* Hover efektiyle renk değişimi */
+}
+
+/* Sayfanın temel yapısına padding ve margin ayarı */
+.container {
+    width: 100%;
+    max-width: 1200px;  /* Sayfanın genişliği 1200px ile sınırlanır */
+    margin: 0 auto;  /* Ortalanmış içerik */
+    padding: 20px;
+}
+
+/* Başlıkların stili */
+h1, h2, h3, h4, h5, h6 {
+    margin: 10px 0;
+    color: #333;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+/* Footer stili */
+footer {
+    background-color: #1d1d1d;  /* Koyu renk footer */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Button genel stil */
+button {
+    background-color: #ff6f00;  /* Tivibu'nun logosundan alındı */
+    color: white;
+    padding: 14px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e65c00;  /* Hover rengi */
+}
+
+/* Navbar genel stil */
+nav {
+    background-color: #ffffff;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+#logo img {
+    height: 50px;
+}
+
+#logo-haric {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+#logo-haric li a {
+    color: #3D82C9;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#logo-haric li a:hover {
+    
+    color: #ffffff;
+}
+
+/* Genel form elementleri */
+input, select, textarea {
+    font-size: 16px;
+    padding: 12px;
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Seçenekler ve liste stil ayarları */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    padding: 10px;
+}
+
+select {
+    background-color: #fafafa;
+}
+
+/* Container'ı ortalayalım */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Görüntü alanları */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Video görünümü */
+video {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+/* içerik kısmı için stil ayarları */
+.fotogosteren {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.fotogosteren label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+select {
+    background-color: #fafafa;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+    color: #555;
+}
+
+button {
+    background-color: #ff6f00;
+    color: white;
+    padding: 14px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e65c00;
+}
+
+/* Video ve içerik alanı */
+#resimid {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Form ve içerik düzenlemesi */
+form {
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Navbar styling */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav li {
+    position: relative;
+}
+
+nav li a {
+    font-size: 18px;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+nav li a:hover {
+    background-color: #333;
+}
+
+/* Dropdown menu styling */
+nav li#settings ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    background-color: #333;
+    list-style-type: none;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    min-width: 150px;
+}
+
+nav li#settings:hover ul {
+    display: block;
+}
+
+nav li#settings ul li a {
+    padding: 8px 12px;
+    color: white;
+}
+
+nav li#settings ul li a:hover {
+    background-color: #ff6f00;
+}
+

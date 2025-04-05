@@ -1,0 +1,20 @@
+{% extends "base.html" %} 
+
+{% block body %}
+<table style="width:100%">
+    <tr>
+      <th>Song</th>
+      <th>Singer</th>
+      <th>Time</th>
+    </tr>
+    {%for i in range(0, len)%} 
+
+    <tr>
+        <th></th>
+        <th>Singer</th>
+        <th>Time</th>
+      </tr>
+    {%endfor%} 
+  </table>
+
+  {% endblock  %}
