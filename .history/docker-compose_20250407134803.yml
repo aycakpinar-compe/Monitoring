@@ -1,0 +1,63 @@
+version: '3'
+
+services:
+  flask:
+    build:
+      context: .  # Flask uygulamanızın bulunduğu dizin
+    container_name: flask_app
+    expose:
+      - "8000"  # Flask'ın iç portu
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped
+    command: gunicorn -b 0.0.0.0:8000 app:app  # Flask uygulamasını gunicorn ile başlat
+    networks:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_server
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  
+    ports:
+      - "80:80" 
+    depends_on:
+      - flask  # Flask calis madan nginx başlamaz, servis ismi yazcan container name degil
+    restart: unless-stopped
+    networks:
+      - backend
+
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - //var/run/docker.sock:/var/run/docker.sock:ro #  bu linuxda boyle degil 
+    # "- /var/run/docker.sock:/var/run/docker.sock" olarak degistir
+    #suan wsl de calisiyo mu bak
+    restart: always
+    networks:
+      - backend
+
+
+prometheus:
+    image: prom/prometheus:latest
+    restart: always
+    container_name: prometheus
+     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus_db:/var/lib/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      #./prometheus_db adında bir klasör oluşturulur
+      # ve container kapanınca bile veri burada kalır.
+    mem_limit: 2000m #max memory mb
+    ports:
+      - '9090:9090'
+    networks:
+      - backend
+ 
+     
+networks:
+  backend:
+    driver: bridge

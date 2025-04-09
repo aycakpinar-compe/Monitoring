@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  flask:
+    build:
+      context: .  # Flask uygulamanızın bulunduğu dizin
+    container_name: flask_app
+    expose:
+      - "8000"  # Flask'ın iç portu
+    environment:
+      - FLASK_ENV=development
+    restart: unless-stopped
+    command: gunicorn -b 0.0.0.0:8000 app:app  # Flask uygulamasını gunicorn ile başlat
+    networks:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_server
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf  
+    ports:
+      - "80:80" 
+    depends_on:
+      - flask  # Flask çalışmadan Nginx başlamaz
+    restart: unless-stopped
+    networks:
+      - backend
+
+
+cadvisor:
+  image: gcr.io/cadvisor/cadvisor:latest
+  ports:
+    - "8080:8080"
+  volumes:
+    - /:/rootfs:ro
+    - /var/run:/var/run:ro
+    - /sys:/sys:ro
+    - /var/lib/docker/:/var/lib/docker:ro
+  restart: always
+
+networks:
+  backend:
+    driver: bridge
