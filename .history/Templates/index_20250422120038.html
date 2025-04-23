@@ -1,0 +1,26 @@
+{% extends "base.html" %} 
+
+{% block body %}
+<div class="fotogosteren">
+    <label style="margin-right: 10px;">Bir şarkı seçin:</label>
+    <select style="margin-right: 20px;" id="selectid"  onchange="resmidegistir()">
+        <option id="" value="" disabled selected>Bir video seçin</option>
+        <option id="1" value="{{ url_for('static', filename='3.jpeg') }}">LP - Other People</option>
+        <option id="2" value="{{ url_for('static', filename='4.jpeg') }}">Lana Del Rey - West Coast</option>
+        <option id="3" value="{{ url_for('static', filename='5.jpeg') }}"> Billie Eilish - when the party's over</option>
+        <option id="4" value="{{ url_for('static', filename='6.jpeg') }}">Billie Eilish - Ocean Eyes</option>
+        <option id="5" value="{{ url_for('static', filename='2.jpeg') }}">5</option>
+        <option id="6" value="{{ url_for('static', filename='1.jpeg') }}">6</option>
+    </select>
+    
+    <button type="submit">SUBMIT</button>
+    
+    <div>
+        <h3>Seçtiğiniz video:</h3>
+        <video id="resimid" width="400" height="300" controls>
+            <source id="videosource" src="" type="video/mp4">
+            Tarayıcınız video etiketini desteklemiyor.
+        </video>
+    </div>
+</div>
+{% endblock %}

@@ -190,14 +190,14 @@ def signup():
 @app.route('/history', methods=['GET', 'POST'])
 def history():
     try:
-
+       
         if request.method == "POST":
             cursor = dbconnection.cursor(dictionary=True)
-            data = request.get_json()
+            data = request.get_json() 
             user_id = session.get('userid')
             picked_song = data.get('pickedsong')  # Seçilen şarkı
             session_date = data.get('session_date')  # Seçilen zaman
-            print(user_id, picked_song, session_date)  # check icin
+            print(user_id, picked_song, session_date) #check icin
             # Veritabanina kaydediyoruz
             query = "INSERT INTO picked_items (picked_song, session_date, userid) VALUES (%s, %s, %s)"
             cursor.execute(query, (picked_song, session_date, user_id))
