@@ -21,9 +21,9 @@ app.config['SESSION_USE_SIGNER'] = True
 dbconnection = mysql.connector.connect(
     # hata:host.docker.internal bunu dockerla calistircaksan kesin degistir
     host='localhost',
-    user='root',
-    password='Bitirme.proj.24',
-    database='stajdb',
+    user='bbbb',
+    password='xxxxxx,
+    database='cb',
     autocommit=True
 )
 
@@ -47,7 +47,7 @@ def apppage():
 
 @app.route('/')
 def indexroute():
-    # If user is already logged in, redirect to main page
+   
     if 'userid' in session:
         return redirect(url_for('apppage'))
     return render_template('signin.html')
