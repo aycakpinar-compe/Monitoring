@@ -7,7 +7,6 @@ It demonstrates how to collect, visualize, and alert on both application and sys
    -Alertmanager (alerting)
    -The main goal is to understand how services run in containers and how they can be monitored, visualized, and alerted in case of issues.
 
-
   What This Project Does :
 -Serves a simple web application using Flask
 -Uses Nginx as a reverse proxy
